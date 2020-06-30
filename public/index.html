@@ -17,15 +17,61 @@
 </head>
 <body>
   <div id="app">
+    <v-toolbar color="blue lighten-3">
+      <v-toolbar-title>Todo App</v-toolbar-title>
+    </v-toolbar>
     <h1>{{ message }}</h1>
-    
+
+    <v-text-field v-model="postTitle" label="Todo Title" required></v-text-field>
+    <v-text-field v-model="postPriority" label="Todo Priority" required></v-text-field>
+    <v-text-field v-model="postContent" label="Todo Content" required></v-text-field>
+    <v-btn color="red" flat v-on:click="postTodo">
+      Add Todo
+    </v-btn>
+    <ul>
+      <li v-for="todo in todosList">[{{ todo.title }}] {{ todo.priority }}{{ todo.content }}</li>
+    </ul>
+
+
   </div>
+
   <script>
     new Vue ({
       el: '#app',
       data: {
         message: "Todo App",
+        allData: [],
+        todosList: [],
+        postTitle: '',
+        postPriority: '',
+        postContent: '',
+      },
+
+      mounted (){
+        this.listTodos();
+      },
+
+      methods: {
+        listTodos: function() {
+          axios.get("/todos.json")
+          .then(response => {
+            this.allData = response.data
+            this.todosList = this.allData
+            }
+          );
+        },
+        postTodo: function (){
+          axios.post("/todos.json", {title: this.postTitle, priority: this.postPriority, content: this.postContent})
+          .then(response => {
+            console.log(response)
+            this.listTodos();
+            this.postTitle = ''
+            this.postPriority = ''
+            this.postContent = ''
+          });
+        } 
       }
+
     })
   </script>
 </body>
