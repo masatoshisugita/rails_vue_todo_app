@@ -1,0 +1,15 @@
+current directory: /Users/sugitamasatoshi/Desktop/sam/rails_vue/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/sugitamasatoshi/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20200630-59412-1rrnom6.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sugitamasatoshi/Desktop/sam/rails_vue/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/sugitamasatoshi/Desktop/sam/rails_vue/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/sugitamasatoshi/Desktop/sam/rails_vue/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20200630-59412-9z6mrs/skiptrace/internal
